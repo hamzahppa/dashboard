@@ -23,9 +23,12 @@ Route::get('menu', function() {
 	return view('menu');
 });
 
-Route::get('keyword', function() {
-	return view('keyword');
-});
+Route::get('keyword', 'KeywordController@listkeyword');
+Route::post('keyword/simpan', 'KeywordController@store');
+Route::delete('keyword/delete/{index}', 'KeywordController@destroy');
+
+Route::get('slider', 'SliderController@listslider');
+Route::post('slider/simpan', 'SliderController@store');
 
 Route::get('kurir', function() {
 	return view('kurir');
@@ -37,10 +40,6 @@ Route::get('promo', function() {
 
 Route::get('searching', function() {
 	return view('searching');
-});
-
-Route::get('slider', function() {
-	return view('slider');
 });
 
 Route::get('transaksi', function() {
